@@ -7,6 +7,9 @@ class App {
                 TaxEntry(180001, Integer.MAX_VALUE, 54232, 45.0, 1, 180000))
     }
 
-    val getter = ConsoleInputGetter()
-    val abc = PayslipGenerator(getter, App.taxTable).generatePayslipOutput()
+    init {
+        val reader = ConsoleReader()
+        val writer = ConsoleWriter()
+        PayslipGenerator(reader, writer, App.taxTable).generatePayslipOutput()
+    }
 }

@@ -10,11 +10,11 @@ public class AppTest {
 //        Payslip payslip = new PayslipCalculator(employee, paymentInput).generatePayslipOutput();
 //    }
 
-    @Test
-    public void wholeApplicationTest() {
-        InputGetter getter = new ConsoleInputGetter();
-        List<TaxEntry> taxEntries = null;
-
-        Payslip payslip = new PayslipGenerator(getter, taxEntries).generatePayslipOutput();
-    }
+//    @Test
+//    public void wholeApplicationTest() {
+//        MyReader reader = new ConsoleReader();
+//        List<TaxEntry> taxEntries = null;
+//
+//        Payslip payslip = new PayslipGenerator(reader, taxEntries).generatePayslipOutput();
+//    }
 }

@@ -1,5 +1,4 @@
-class PayslipGenerator(inputGetter: InputGetter, taxTable: List<TaxEntry>) {
-    fun generatePayslipOutput(): Unit {
-        return Unit
+class PayslipGenerator(myReader: MyReader, myWriter: MyWriter, taxTable: List<TaxEntry>) {
+    fun generatePayslipOutput() {
     }
 }
