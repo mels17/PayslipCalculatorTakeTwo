@@ -1,3 +1,3 @@
 interface MyWriter {
-    fun writePayslip()
+    fun write(message: String)
 }
