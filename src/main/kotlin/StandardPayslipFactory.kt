@@ -1,3 +1,5 @@
+package main.kotlin
+
 import java.math.BigDecimal
 import java.math.RoundingMode
 

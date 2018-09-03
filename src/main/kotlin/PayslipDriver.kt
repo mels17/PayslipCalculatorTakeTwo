@@ -1,3 +1,5 @@
+package main.kotlin
+
 class PayslipDriver(val myReader: MyReader, val myWriter: MyWriter, val taxTable: TaxTable,
                     val payslipFactory: PayslipFactory) {
     fun start() {
@@ -30,7 +32,7 @@ class PayslipDriver(val myReader: MyReader, val myWriter: MyWriter, val taxTable
         myWriter.write(payslip.getStringOutput())
     }
 
-    fun writeWelcomeMessage() = myWriter.write("Welcome to the payslip generator\n")
+    fun writeWelcomeMessage() = myWriter.write("Welcome to the payslip generator\n\n")
 
-    fun writeFinalMessage() = myWriter.write("\nThank you for using MYOB!")
+    fun writeFinalMessage() = myWriter.write("\n\nThank you for using MYOB!")
 }

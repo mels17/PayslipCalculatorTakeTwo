@@ -1,4 +1,6 @@
-import org.junit.Test;
+package test.java;
+
+import main.kotlin.TaxEntry;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,16 +14,16 @@ public class AppTest {
             new TaxEntry(180001, Integer.MAX_VALUE, 54232, 0.45, 1, 180000));
 //    @Test
 //    public void nothing() {
-//        Employee employee =  new Employee("first", "last", 12345);
+//        main.kotlin.Employee employee =  new main.kotlin.Employee("first", "last", 12345);
 //        PaymentInput paymentInput = new PaymentInput(5, "abc", "def");
-//        Payslip payslip = new StandardPayslipFactory(employee, paymentInput).generatePayslipOutput();
+//        main.kotlin.Payslip payslip = new main.kotlin.StandardPayslipFactory(employee, paymentInput).generatePayslipOutput();
 //    }
 
 //    @Test
 //    public void wholeApplicationTest() {
-//        MyReader reader = new ConsoleReader();
-//        List<TaxEntry> taxEntries = null;
+//        main.kotlin.MyReader reader = new main.kotlin.ConsoleReader();
+//        List<main.kotlin.TaxEntry> taxEntries = null;
 //
-//        Payslip payslip = new PayslipDriver(reader, taxEntries).generatePayslipOutput();
+//        main.kotlin.Payslip payslip = new main.kotlin.PayslipDriver(reader, taxEntries).generatePayslipOutput();
 //    }
 }
