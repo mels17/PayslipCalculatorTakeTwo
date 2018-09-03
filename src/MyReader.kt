@@ -1,4 +1,3 @@
 interface MyReader {
-    fun getEmployeeDetails(): Employee
-    fun getPaymentInputs(): PaymentInput
+    fun read(): String
 }

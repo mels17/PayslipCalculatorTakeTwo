@@ -12,6 +12,7 @@ class App {
         val reader = ConsoleReader()
         val writer = ConsoleWriter()
         val taxTable = ListTaxTable(taxTable)
-        PayslipGenerator(reader, writer, taxTable).generatePayslipOutput()
+        val payslipFactory = StandardPayslipFactory()
+        PayslipDriver(reader, writer, taxTable, payslipFactory).start()
     }
 }

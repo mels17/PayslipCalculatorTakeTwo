@@ -1,18 +1,18 @@
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class PayslipCalculator(val empl: Employee, val paymentInput: PaymentInput, val taxTable: TaxTable) {
+class StandardPayslipFactory(): PayslipFactory {
     val NO_OF_MONTHS = 12
     val RATE = 100
-    fun generate(): Payslip {
+    override fun create(empl: Employee, taxTable: TaxTable): Payslip {
         val grossIncome = calculateGrossIncome(empl.salary)
         val incomeTax = calculateIncomeTax(empl.salary, taxTable)
         return Payslip(empl.combineFirstAndLastName(),
-                paymentInput.combinePaymentStartAndEnd(),
+                empl.combinePaymentStartAndEnd(),
                 grossIncome,
                 incomeTax,
                 calculateNetIncome(grossIncome, incomeTax),
-                calculateSuper(empl.salary, paymentInput.superRate));
+                calculateSuper(empl.salary, empl.superRate));
     }
 
     private fun calculateGrossIncome(sal: BigDecimal) = removeDecimalPlaces(sal
