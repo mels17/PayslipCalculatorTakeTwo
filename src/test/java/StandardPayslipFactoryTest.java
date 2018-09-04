@@ -10,7 +10,13 @@ import java.util.List;
 
 public class StandardPayslipFactoryTest {
 
-    public ListTaxTable listTaxTable = new ListTaxTable(AppTest.taxTable);
+    private List<TaxEntry> taxTable = Arrays.asList(new TaxEntry(0, 18200, 0, 0.0, 0, 0),
+            new TaxEntry(18201, 37000, 0, 0.19, 1, 18200),
+            new TaxEntry(37001, 87000, 3572, 0.325, 1, 37000),
+            new TaxEntry(87001, 180000, 19822, 0.37, 1, 87000),
+            new TaxEntry(180001, Integer.MAX_VALUE, 54232, 0.45, 1, 180000));
+
+    public ListTaxTable listTaxTable = new ListTaxTable(taxTable);
 
     private Employee getEmployee(double salary, double superRate) {
         return new Employee("first", "last",
@@ -56,21 +62,21 @@ public class StandardPayslipFactoryTest {
     public void calculateSuperWhenSalaryAndSuperGiven() {
         Payslip actualPayslip = new StandardPayslipFactory().create(getEmployee(1200, 5), listTaxTable);
 
-        Assert.assertEquals(BigDecimal.valueOf(60), actualPayslip.getSuperAmt());
+        Assert.assertEquals(BigDecimal.valueOf(5), actualPayslip.getSuperAmt());
     }
 
     @Test
     public void roundUpSuperWhenSalaryAndSuperWithDecimalPlacesGiven() {
         Payslip actualPayslip = new StandardPayslipFactory().create(getEmployee(120, 5.55), listTaxTable);
 
-        Assert.assertEquals(BigDecimal.valueOf(7), actualPayslip.getSuperAmt());
+        Assert.assertEquals(BigDecimal.valueOf(1), actualPayslip.getSuperAmt());
     }
 
     @Test
     public void roundDownSuperWhenSalaryAndSuperWithDecimalPlacesGiven() {
         Payslip actualPayslip = new StandardPayslipFactory().create(getEmployee(120, 5.01), listTaxTable);
 
-        Assert.assertEquals(BigDecimal.valueOf(6), actualPayslip.getSuperAmt());
+        Assert.assertEquals(BigDecimal.valueOf(1), actualPayslip.getSuperAmt());
     }
 
     @Test

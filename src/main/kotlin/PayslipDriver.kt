@@ -10,7 +10,7 @@ class PayslipDriver(val myReader: MyReader, val myWriter: MyWriter, val taxTable
         writeFinalMessage()
     }
 
-    fun getEmployeeDetails(): Employee {
+    private fun getEmployeeDetails(): Employee {
         myWriter.write("Please input your name: ")
         val name = myReader.read()
         myWriter.write("Please input your surname: ")
@@ -27,12 +27,12 @@ class PayslipDriver(val myReader: MyReader, val myWriter: MyWriter, val taxTable
         return Employee(name, surname, salary, rate, startDate, endDate)
     }
 
-    fun outputPayslip(payslip: Payslip) {
+    private fun outputPayslip(payslip: Payslip) {
         myWriter.write("\nYour payslip has been generated.\n")
         myWriter.write(payslip.getStringOutput())
     }
 
-    fun writeWelcomeMessage() = myWriter.write("Welcome to the payslip generator\n\n")
+    private fun writeWelcomeMessage() = myWriter.write("Welcome to the payslip generator\n\n")
 
-    fun writeFinalMessage() = myWriter.write("\n\nThank you for using MYOB!")
+    private fun writeFinalMessage() = myWriter.write("\n\nThank you for using MYOB!")
 }
